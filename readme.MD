@@ -8,13 +8,13 @@ process.env.VARIABLE
 
 ## Endpoints
 
-Get All Owners(GET)
+#### Get All Owners(GET)
 `https://pethouse1.herokuapp.com/owner/` 
 
-Get Owner by ID(GET)
+#### Get Owner by ID(GET)
 `https://pethouse1.herokuapp.com/owner/61e5162e4a31aacf8aa88ab7` 
 
-Post Owner(POST)
+#### Post Owner(POST)
 `https://pethouse1.herokuapp.com/owner`
 
 Body
@@ -27,7 +27,7 @@ Body
 }
 ``` 
 
-Update Owner(PUT)
+#### Update Owner(PUT)
 `https://pethouse1.herokuapp.com/owner/id`
 
 Body
@@ -40,7 +40,7 @@ Body
 }
 ``` 
 
-Delete Owner(DELETE)
+#### Delete Owner(DELETE)
 `https://pethouse1.herokuapp.com/owner/id`
 
 
