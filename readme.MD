@@ -8,7 +8,7 @@ Get All Owners
 `https://pethouse1.herokuapp.com/owner/` 
 
 Get Owner by ID
-`https://pethouse1.herokuapp.com/owner/id` 
+`https://pethouse1.herokuapp.com/owner/61e5162e4a31aacf8aa88ab7` 
 
 Post Owner
 `https://pethouse1.herokuapp.com/owner`

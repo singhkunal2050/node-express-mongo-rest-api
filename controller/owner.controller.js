@@ -44,6 +44,7 @@ exports.findAll = (req, res) => {
 
 // Find a single owner with a ownerId
 exports.findOne = (req, res) => {
+
     console.log("Get ONE by id Request Received")
     Owner.findById(req.params.id)
         .then(owner => {
@@ -67,6 +68,41 @@ exports.findOne = (req, res) => {
 
 // Update a owner identified by the ownerId in the request
 exports.update = (req, res) => {
+    console.log("PAtch Request Received")
+    if (!req.body.name || !req.body.gender || !req.body.petCount || !req.body.address) {
+        return res.status(400).send({
+            message: "Parameters not sent!"
+        });
+    }
+
+    Owner.findByIdAndUpdate(req.params.id, {
+        name: req.body.name,
+        gender: req.body.gender,
+        petCount: req.body.petCount,
+        address: req.body.address
+    }, { new: true })
+    .then(owner => {
+
+        if(!owner){
+            return res.status(404).send({
+                message: "Owner not found with id " + req.params.id
+            });
+        }
+        res.status(200).send(owner)
+
+    })
+    .catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Owner not found with id " + req.params.id
+            });                
+        }
+        return res.status(500).send({
+            message: "Error updating Owner with id " + req.params.id
+        });
+    });
+
+
 
 };
 
