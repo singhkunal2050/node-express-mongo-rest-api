@@ -108,5 +108,27 @@ exports.update = (req, res) => {
 
 // Delete a owner with the specified ownerId in the request
 exports.delete = (req, res) => {
+    console.log("Delete Request Received")
+    
+    Owner.findByIdAndRemove(req.params.id)
+    .then(owner => {
+
+        if(!owner){
+            return res.status(404).send({
+                message: "Owner not found with id " + req.params.id
+            });
+        }
+        res.status(200).send(owner)
+    })
+    .catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Owner not found with id " + req.params.id
+            });                
+        }
+        return res.status(500).send({
+            message: "Error Deleting Owner with id " + req.params.id
+        });
+    });
 
 };
