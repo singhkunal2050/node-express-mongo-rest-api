@@ -29,6 +29,6 @@ Body
 
 ## Todos
 
-Pets 
-Auth
-GraphQL
+- Pets 
+- Auth
+- GraphQL
