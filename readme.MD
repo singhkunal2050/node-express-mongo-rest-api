@@ -1,6 +1,10 @@
 # Rest API with Node Express & Mongoose 
 
-- Env Variables managed with dotenv
+Env Variables managed with dotenv
+
+```
+process.env.VARIABLE 
+```
 
 ## Endpoints
 
