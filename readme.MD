@@ -26,3 +26,9 @@ Body
     "address": "Kerala"
 }
 ``` 
+
+## Todos
+
+Pets 
+Auth
+GraphQL
