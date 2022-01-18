@@ -30,6 +30,8 @@ mongoose.connect(dbConfig.url, {
 // Require Owner routes
 require('./routes/owner.routes.js')(app);
 
+// Require Pet routes
+require('./routes/pet.routes.js')(app);
 
 app.get("/" , (req ,res)=>{
     res.send("Hello World")
