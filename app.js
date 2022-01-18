@@ -16,7 +16,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // parse requests of content-type - application/json
 app.use(bodyParser.json())
 
-
 // Connecting to the database
 mongoose.connect(dbConfig.url, {
     useNewUrlParser: true
@@ -41,3 +40,5 @@ app.get("/" , (req ,res)=>{
 app.listen(PORT , ()=>{
     console.log(`App Running on Port ${PORT}`)
 })
+
+// api version branch
