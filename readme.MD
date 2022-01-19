@@ -55,6 +55,18 @@ https://pethouse1.herokuapp.com/owner/api/v1/id
 
 ## Same for `/pets`
 
+```
+https://pethouse1.herokuapp.com/api/v1/pet/
+```
+
+## Graphql
+
+```
+https://pethouse1.herokuapp.com/api/v2/graphql/
+```
+
+
+
 ## Todos
 
 - Auth
