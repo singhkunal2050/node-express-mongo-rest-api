@@ -1,5 +1,6 @@
 const express = require("express")
 const bodyParser = require('body-parser');
+const expressGraphQL = require("express-graphql").graphqlHTTP;
 const PORT = process.env.PORT || 3001
 
 const dbConfig = require('./config/dbconfig.js');
@@ -27,6 +28,11 @@ mongoose.connect(dbConfig.url, {
 // require('./routes/pet.routes.js')(app);
 
 app.use('/api/v1', require('./routes/index'));
+
+app.use('/api/v2/graphql', expressGraphQL({
+    schema: require('./graphql/schema'),
+    graphiql: true
+}));
 
 app.get("/" , (req ,res)=>{
     res.send("Hello World")

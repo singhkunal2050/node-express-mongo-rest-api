@@ -9,13 +9,13 @@ process.env.VARIABLE
 ## Endpoints
 
 #### Get All Owners(GET)
-`https://pethouse1.herokuapp.com/owner/` 
+`https://pethouse1.herokuapp.com/api/v1/owner/` 
 
 #### Get Owner by ID(GET)
-`https://pethouse1.herokuapp.com/owner/61e5162e4a31aacf8aa88ab7` 
+`https://pethouse1.herokuapp.com/api/v1/owner/61e5162e4a31aacf8aa88ab7` 
 
 #### Post Owner(POST)
-`https://pethouse1.herokuapp.com/owner`
+`https://pethouse1.herokuapp.com/api/v1/owner`
 
 Body
 ```
@@ -28,7 +28,7 @@ Body
 ``` 
 
 #### Update Owner(PUT)
-`https://pethouse1.herokuapp.com/owner/id`
+`https://pethouse1.herokuapp.com/api/v1/owner/id`
 
 Body
 ```
@@ -41,12 +41,12 @@ Body
 ``` 
 
 #### Delete Owner(DELETE)
-`https://pethouse1.herokuapp.com/owner/id`
+`https://pethouse1.herokuapp.com/owner/api/v1/id`
 
+## Same for `/pets`
 
 ## Todos
 
-- Pets 
 - Auth
 - GraphQL
 
