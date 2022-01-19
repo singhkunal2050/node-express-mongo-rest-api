@@ -49,3 +49,7 @@ Body
 - Pets 
 - Auth
 - GraphQL
+
+- Hubspot Learnings 
+store locater 
+animations 
