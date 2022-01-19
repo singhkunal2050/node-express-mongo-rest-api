@@ -51,5 +51,5 @@ Body
 - GraphQL
 
 - Hubspot Learnings 
-store locater 
-animations 
+- store locater 
+- animations GSAP Scroll Anims
