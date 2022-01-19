@@ -6,5 +6,6 @@ router.get("/", function (req, res) {
 });
 
 router.use("/owner", require("./owner.routes").router);
+router.use("/pet", require("./pet.routes").router);
 
 module.exports = router;

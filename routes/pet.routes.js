@@ -1,20 +1,11 @@
+const express = require('express'),
+    router = express.Router(),
+pet = require('../controller/pet.controller');
 
-module.exports = (app) =>{
-    const pet = require('../controller/pet.controller.js')   
-    
-    // Create new Pet
-    app.post('/pet' , pet.create)
+router.post('/', pet.create);
+router.get('/', pet.findAll);
+router.get('/:id', pet.findOne);
+router.put('/:id', pet.update);
+router.delete('/:id', pet.delete);
 
-    // Get all Pets
-    app.get('/pet' , pet.findAll)
-
-    // Get Pet by ID
-    app.get('/pet/:id', pet.findOne)
-
-    // Updade Pet
-    app.put('/pet/:id', pet.update)
-
-    // Delete Pet
-    app.delete('/pet/:id' , pet.delete)
-
-}
+module.exports.router = router;
