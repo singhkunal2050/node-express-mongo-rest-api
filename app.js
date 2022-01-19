@@ -29,7 +29,7 @@ app.use('/api/v2/graphql', expressGraphQL({
     graphiql: true
 }));
 
-app.use('/', express.static('view/doc.html'))
+app.use('/docs', express.static('view/doc.html'))
 
 
 app.listen(PORT , ()=>{
