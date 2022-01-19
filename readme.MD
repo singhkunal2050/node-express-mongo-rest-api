@@ -24,7 +24,7 @@ https://pethouse1.herokuapp.com/api/v1/owner
 ```
 
 Body
-```
+```json
 {
     "name": "Amar",
     "gender": "Male",
@@ -39,7 +39,7 @@ https://pethouse1.herokuapp.com/api/v1/owner/id
 ```
 
 Body
-```
+```json
 {
     "name": "Amar",
     "gender": "Male",
