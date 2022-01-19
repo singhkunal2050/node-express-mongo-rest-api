@@ -22,11 +22,6 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 
-// Require Owner routes
-// require('./routes/owner.routes.js')(app);
-// // Require Pet routes
-// require('./routes/pet.routes.js')(app);
-
 app.use('/api/v1', require('./routes/index'));
 
 app.use('/api/v2/graphql', expressGraphQL({
@@ -34,9 +29,8 @@ app.use('/api/v2/graphql', expressGraphQL({
     graphiql: true
 }));
 
-app.get("/" , (req ,res)=>{
-    res.send("Hello World")
-})
+app.use('/', express.static('view/doc.html'))
+
 
 app.listen(PORT , ()=>{
     console.log(`App Running on Port ${PORT}`)
