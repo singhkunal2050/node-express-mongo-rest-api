@@ -2,21 +2,16 @@ const express = require("express")
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3001
 
-// Configuring the database
 const dbConfig = require('./config/dbconfig.js');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-// Create Express App
 const app = express()
 
-// parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
 
-// parse requests of content-type - application/json
 app.use(bodyParser.json())
 
-// Connecting to the database
 mongoose.connect(dbConfig.url, {
     useNewUrlParser: true
 }).then(() => {
