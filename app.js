@@ -31,6 +31,9 @@ app.use('/api/v2/graphql', expressGraphQL({
 
 app.use('/docs', express.static('view/doc.html'))
 
+app.get('/' , (req,res)=>{
+    res.send({"message":"Goto /docs for documentation"})
+})
 
 app.listen(PORT , ()=>{
     console.log(`App Running on Port ${PORT}`)
