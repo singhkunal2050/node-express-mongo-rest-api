@@ -22,18 +22,16 @@ mongoose.connect(dbConfig.url, {
 });
 
 // Require Owner routes
-require('./routes/owner.routes.js')(app);
+// require('./routes/owner.routes.js')(app);
+// // Require Pet routes
+// require('./routes/pet.routes.js')(app);
 
-// Require Pet routes
-require('./routes/pet.routes.js')(app);
+app.use('/api/v1', require('./routes/index'));
 
 app.get("/" , (req ,res)=>{
     res.send("Hello World")
 })
 
-
 app.listen(PORT , ()=>{
     console.log(`App Running on Port ${PORT}`)
 })
-
-// main branch
