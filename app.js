@@ -1,7 +1,7 @@
 const express = require("express")
 const bodyParser = require('body-parser');
 const expressGraphQL = require("express-graphql").graphqlHTTP;
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3009
 
 const dbConfig = require('./config/dbconfig.js');
 const mongoose = require('mongoose');
