@@ -161,6 +161,37 @@ const RootMutationType = new GraphQLObjectType({
                     throw new Error(error)
                 }
             }
+        },
+        createPet: {
+            type: PetType,
+            description: 'Create a new Pet',
+            args: {
+                petname: {
+                    type: new GraphQLNonNull(GraphQLString),
+                    description: 'The petname'
+                },
+                gender: {
+                    type: new GraphQLNonNull(GraphQLString),
+                    description: 'The gender of pet'
+                },
+                animal: {
+                    type: new GraphQLNonNull(GraphQLString),
+                    description: 'The pet animal species'
+                },
+                photo: {
+                    type: new GraphQLNonNull(GraphQLString),
+                    description: 'The photo of pet'
+                }
+            },
+            resolve: async (parent, args, context, info) => {
+                const { petname, gender, animal , photo } = args
+                try {
+                    const pet = await Pet.create({ petname, gender, animal, photo })
+                    return pet
+                } catch (error) {
+                    throw new Error(error)
+                }
+            }
         }
     })
 
