@@ -203,6 +203,26 @@ const RootMutationType = new GraphQLObjectType({
       },
     },
 
+    deleteOwner: {
+        type: OwnerType,
+        description: "Delete Owner",
+        args: {
+          _id: {
+            type: new GraphQLNonNull(GraphQLString),
+            description: "The id String of the Owner",
+          },
+        },
+        resolve: async (parent , args , context , info)=>{
+          try{
+              let data  = await Owner.findByIdAndRemove(args._id)
+              return data
+          }catch(err){
+              throw new(err)
+          }
+        }
+      },
+
+
     createPet: {
       type: PetType,
       description: "Create a new Pet",
@@ -260,16 +280,40 @@ const RootMutationType = new GraphQLObjectType({
           description: "The photo of pet",
         },
       },
-      resolve: async (parent, args , context , info) =>{
-        const { _id , petname, gender, animal, photo } = args
+      resolve: async (parent, args, context, info) => {
+        const { _id, petname, gender, animal, photo } = args;
+        try {
+          let data = await Pet.findByIdAndUpdate(
+            _id,
+            { petname, gender, animal, photo },
+            { new: true }
+          );
+          return data;
+        } catch (err) {
+          throw new Error(err);
+        }
+      },
+    },
+
+    deletePet: {
+      type: PetType,
+      description: "Delete pet",
+      args: {
+        _id: {
+          type: new GraphQLNonNull(GraphQLString),
+          description: "The id String of the Pet",
+        },
+      },
+      resolve: async (parent , args , context , info)=>{
         try{
-            let data = await Pet.findByIdAndUpdate(_id , { petname, gender, animal, photo} , {new : true})
+            let data  = await Pet.findByIdAndRemove(args._id)
             return data
         }catch(err){
-            throw new Error(err)
+            throw new(err)
         }
       }
-    },
+    }
+
 
   }),
 });
