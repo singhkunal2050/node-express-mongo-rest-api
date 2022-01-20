@@ -29,7 +29,6 @@ app.use('/api/v2/graphql', expressGraphQL({
     graphiql: true
 }));
 
-// use documentations
 app.use('/docs', express.static('view/doc.html'))
 
 app.get('/' , (req,res)=>{
