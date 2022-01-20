@@ -60,7 +60,7 @@ const PetType = new GraphQLObjectType({
             description: 'The gender of pet'
         },
         animal: {
-            type: new GraphQLNonNull(GraphQLInt),
+            type: new GraphQLNonNull(GraphQLString),
             description: 'The pet animal species'
         },
         photo: {
@@ -100,7 +100,15 @@ const RootQueryType = new GraphQLObjectType({
                     return {"message":err}
                 }
             }
-        }
+        },
+        pets: {
+            type: new GraphQLList(PetType),
+            description: 'List of Pets',
+            resolve: async (parent, args, context, info) => {
+                const pets = await Pet.find()
+                return pets
+            }
+        },
     })
 });
 
