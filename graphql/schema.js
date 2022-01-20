@@ -82,25 +82,25 @@ const RootQueryType = new GraphQLObjectType({
                 const owners = await Owner.find()
                 return owners
             }
+        },
+        owner: {
+            type: OwnerType,
+            description: 'Single Owner',
+            args: {
+                id: {
+                    type: GraphQLString,
+                    description: 'The id of the Owner'
+                }
+            },
+            resolve: async (parent, args, context, info) => {
+                try{
+                    const owner =  await Owner.findOne({ _id: args.id }) 
+                    return owner
+                }catch(err){
+                    return {"message":err}
+                }
+            }
         }
-        // post: {
-        //     type: PostType,
-        //     description: 'Single Post',
-        //     args: {
-        //         slug: {
-        //             type: GraphQLString,
-        //             description: 'The slug of the post'
-        //         },
-        //         id: {
-        //             type: GraphQLString,
-        //             description: 'The id of the post'
-        //         }
-        //     },
-        //     resolve: async (parent, args, context, info) => {
-        //         const post = args.slug ? await Post.findOne({ slug: args.slug }) : await Post.findById(args.id)
-        //         return post
-        //     }
-        // }
     })
 });
 
