@@ -109,6 +109,20 @@ const RootQueryType = new GraphQLObjectType({
                 return pets
             }
         },
+        pet:{
+            type: PetType,
+            description:'Single Pet',
+            args:{
+                id:{
+                    type:GraphQLString,
+                    description: "id of the pet"
+                }
+            },
+            resolve: async (parent , args , context , info)=>{
+                const pet = await Pet.findOne({_id:args.id})
+                return pet
+            }
+        }
     })
 });
 
